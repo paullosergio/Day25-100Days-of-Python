@@ -1,5 +1,5 @@
 # U.S. State Game
 
-Guess the 50 names states of the United States.
+Guess the names of the 50 US states.
 
 Type exit to leave the game.
