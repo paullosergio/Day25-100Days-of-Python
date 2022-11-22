@@ -25,13 +25,13 @@ while len(guessed_states) < 50:
         state = data[data["state"] == answer]
         t.goto(int(state.x),int(state.y))
         t.write(answer)
-    elif answer == "Exit":
+    
+    # Create a csv with missing states
+    if answer == "Exit":
+        missing_states = [state for state in all_states if state not in guessed_states]
+        df = pd.DataFrame(missing_states)
+        df.to_csv("states_to_learn.csv")
         break
 
 
-# Create a csv with missing states
-set_all = set(all_states)
-set_state = set(guessed_states)
-states_to_learn =  set_all.difference(set_state)
-df = pd.DataFrame(states_to_learn)
-df.to_csv("states_to_learn.csv")
+
